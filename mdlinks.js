@@ -30,25 +30,6 @@ program
     mdlinks(file, options)
       .then(({ links, statistics }) => {
         if (options.validate && options.stats) {
-          /* const cliTableVali = new Table({
-            head: ['HREF', 'TEXT', 'FILE', 'STATUS'],
-            colWidths: [35, 35, 20, 15], 
-            style: {
-              head: ['white', 'bold'],
-              border: ['cyan'],
-              'padding-left': 0, 
-              'padding-right': 0,
-            },
-          });
-
-          links.forEach((link) => {
-            const text = (` ${link.text.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim()}`);
-            const status = link.ok === 'ok' ? okChalk(link.ok) : erroChalk(link.ok);
-            cliTableVali.push([hrefChalk(link.href), textChalk(text), fileChalk(link.file), statusChalk(status + ' => ' + link.status)]);
-          });
-
-          console.log(cliTableVali.toString()); */
-
           const cliTable = new Table({
             head: ['TOTAL', 'UNIQUE', 'BROKEN'],
             colWidths: [10, 10, 10],

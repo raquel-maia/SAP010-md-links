@@ -8,7 +8,7 @@ function mdlinks(file, options) {
   return new Promise((resolve, reject) => {
     fs.stat(filePath, (err, stats) => {
       if (err) {
-         if (err.code === 'ENOENT') {
+          if (err.code === 'ENOENT') {
           reject(`O arquivo/diretório ${filePath} não foi encontrado no caminho especificado.`);
         } else {
           reject(err);
@@ -16,26 +16,22 @@ function mdlinks(file, options) {
       } else {
         if (stats.isDirectory()) {
           const markdownFiles = [];
-          // Realizar busca recursiva para encontrar todos os arquivos Markdown dentro do diretório.
           searchRecursion(filePath, (file) => {
             if (file.endsWith('.md')) {
               markdownFiles.push(file);
             }
           });
           const promises = markdownFiles.map((mdFile) =>
-            // Processar cada arquivo Markdown encontrado.
             readMarkdownFile(mdFile, options)
           );
           Promise.all(promises)
             .then((results) => {
-              // Mesclar os resultados de todos os arquivos Markdown.
               const links = results.flatMap((result) => result.links);
               const statistics = statisticsLinks(links);
               resolve({ links, statistics });
             })
             .catch((error) => reject(error));
         } else if (stats.isFile() && path.extname(file) === '.md') {
-          // Processar arquivo Markdown individualmente.
           readMarkdownFile(filePath, options)
             .then((result) => {
               resolve(result);
@@ -43,27 +39,21 @@ function mdlinks(file, options) {
             .catch((error) => reject(error));
         } else {
           reject(`O ${file} não é um arquivo Markdown.`);
-         /*  console.log(`O ${file} não é um arquivo Markdown.`) */
         }
       }
     });
   });
 }
 
-// Função para realizar busca recursiva de arquivos e diretórios.
 function searchRecursion(absDirPath, fileCallback) {
   try {
     const files = fs.readdirSync(absDirPath);
-
     for (const file of files) {
       const filePath = path.join(absDirPath, file);
       const stats = fs.statSync(filePath);
-
       if (stats.isDirectory()) {
-        // Se for um diretório, realizar busca recursiva.
         searchRecursion(filePath, fileCallback);
       } else {
-        // Se for um arquivo, executar o callback passando o caminho do arquivo.
         fileCallback(filePath);
       }
     }
@@ -72,7 +62,6 @@ function searchRecursion(absDirPath, fileCallback) {
   }
 }
 
-// Função para ler e extrair os links de um arquivo Markdown.
 function readMarkdownFile(filePath, options) {
   return new Promise((resolve, reject) => {
     fs.readFile(filePath, 'utf8', (error, data) => {
@@ -80,11 +69,8 @@ function readMarkdownFile(filePath, options) {
         console.log(error);
         reject(error);
       } else {
-        // Encontrar todos os links no arquivo Markdown.
         const links = findLinksInMarkdown(data, filePath);
-
         if (options && options.validate) {
-          // Se a opção de validação estiver ativada, validar os links encontrados.
           validateLinks(links)
             .then((validatedLinks) => {
               const statistics = statisticsLinks(validatedLinks);
@@ -92,7 +78,6 @@ function readMarkdownFile(filePath, options) {
             })
             .catch((error) => reject(error));
         } else {
-          // Caso contrário, calcular apenas as estatísticas dos links encontrados.
           const statistics = statisticsLinks(links);
           resolve({ links, statistics });
         }
@@ -101,7 +86,6 @@ function readMarkdownFile(filePath, options) {
   });
 }
 
-// Função para encontrar todos os links em um arquivo Markdown.
 function findLinksInMarkdown(data, filePath) {
   const regex = /\[([^[\]]*?)\]\((https?:\/\/[^\s?#.].[^\s]*)\)/gm;
   const links = [];
@@ -115,7 +99,6 @@ function findLinksInMarkdown(data, filePath) {
   return links;
 }
 
-// Função para validar um link fazendo uma requisição HTTP.
 function validateFetch(url) {
   return fetch(url.href)
     .then((response) => ({
@@ -130,13 +113,12 @@ function validateFetch(url) {
     }));
 }
 
-// Função para validar todos os links encontrados.
+
 function validateLinks(links) {
   const linkPromises = links.map((link) => validateFetch(link));
   return Promise.all(linkPromises);
 }
 
-// Função para calcular estatísticas dos links encontrados.
 function statisticsLinks(links) {
   const totalLinks = links.length;
   const uniqueLinks = [...new Set(links.map((link) => link.href))].length;
