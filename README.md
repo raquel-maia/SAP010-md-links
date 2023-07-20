@@ -19,7 +19,7 @@ No projeto *'Markdown Links'*, desenvolvido durante o bootcamp da Laboratoria, f
 Para instalar a biblioteca, execute o seguinte comando no terminal:
 ### 🔹npm install md-links-raquel-maia
 ## 3.  Fluxograma
-<img src= ".\fluxo-f.png" width ="950px" height ="550px"/> 
+<img src= ".\fluxo-f.png"/> 
 
 ## 4. Instrução de uso 
 
