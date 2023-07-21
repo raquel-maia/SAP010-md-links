@@ -2,10 +2,10 @@
 
 ## Índice
 
-* [1. Resumo](#1-prefácio)
+* [1. Resumo](#1-resumo)
 * [2. Instalação da biblioteca ](#2-instalação-do-biblioteca)
-* [3. Fluxograma](#3-fluxograma)
-* [4. Instrução de uso](#4-instrução-de-uso)
+* [3. Instrução de uso](#3-instrução-de-uso)
+* [4. Fluxograma ](#4-fluxograma)
 * [5. Tecnologias utilizadas](#5-tecnologias-utilizadas)
 
 
@@ -19,10 +19,8 @@ No projeto *'Markdown Links'*, desenvolvido durante o bootcamp da Laboratoria, f
 Para instalar a biblioteca, execute o seguinte comando no terminal:
 
 ### 🔹npm install md-links-raquel-maia -g
-## 3.  Fluxograma
-<img src= ".\fluxo-f.png"/> 
 
-## 4. Instrução de uso 
+## 3. Instrução de uso 
 
 🟣 Listagem de Links 
 
@@ -56,5 +54,10 @@ Esses dois comandos juntos  _--validate --stats_ exibirá em uma tabela o númer
 
 <img src= ".\comando3.png" /> 
 
+## 4.  Fluxograma
+<img src= ".\fluxo-f.png"/> 
+
 ## 5. Tecnologias utilizadas
  <img alt="JS" height="50" src="https://cdn2.iconfinder.com/data/icons/designer-skills/128/code-programming-javascript-software-develop-command-language-256.png"> <img alt="git" height="40" src="https://cdn3.iconfinder.com/data/icons/social-media-2169/24/social_media_social_media_logo_git-256.png"/> <img alt="github" height="45" src="https://cdn1.iconfinder.com/data/icons/unicons-line-vol-3/24/github-256.png"/> <img alt="nodejs" height="45" src="https://cdn.icon-icons.com/icons2/2415/PNG/512/nodejs_plain_logo_icon_146409.png"/> 
+
+## Desenvolvido por: [Raquel Maia ](https://www.linkedin.com/in/raquel-maia-860/) 👩🏽‍💻 
