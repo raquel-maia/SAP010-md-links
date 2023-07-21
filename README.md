@@ -24,7 +24,7 @@ Para instalar a biblioteca, execute o seguinte comando no terminal:
 
 🟣 Listagem de Links 
 
-Comando 1 > **md-links ./caminhoDaPasta/nomeDoArquivo.md** 
+Comando 1 > **mdlinks ./caminhoDaPasta/nomeDoArquivo.md** 
 
 Esse comando procura arquivos na rota especificada, e imprime através de uma tabela os links extraídos, juntamente com o texto descritivo do link e a rota do arquivo em que cada link foi encontrado, como o exemplo abaixo:
 
@@ -32,7 +32,7 @@ Esse comando procura arquivos na rota especificada, e imprime através de uma ta
 
 🟣 Validação de Links 
 
-Comando 2 > **md-links ./caminhoDaPasta/nomeDoArquivo.md _--validate_** 
+Comando 2 > **mdlinks ./caminhoDaPasta/nomeDoArquivo.md _--validate_** 
 
 Esse comando fará uma requisição HTTP para verificar se cada link funciona ou não, apresentando uma tabela com o código de resposta (status HTTP) e uma mensagem correspondente em caso de sucesso (ok) ou falha (fail). Veja exemplo abaixo:
 
@@ -40,7 +40,7 @@ Esse comando fará uma requisição HTTP para verificar se cada link funciona ou
 
 🟣 Estatísticas de links 
 
-Comando 3 > **md-links ./caminhoDaPasta/nomeDoArquivo.md _--stats_** 
+Comando 3 > **mdlinks ./caminhoDaPasta/nomeDoArquivo.md _--stats_** 
 
 Esse comando _--stats_, exibirá em uma tabela o número total de links encontrados no arquivo e o total de links únicos.
 
@@ -48,7 +48,7 @@ Esse comando _--stats_, exibirá em uma tabela o número total de links encontra
 
 🟣 Validação + Estatísticas de links 
 
-Comando 4 > **md-links ./caminhoDaPasta/nomeDoArquivo.md _--stats --validate_**
+Comando 4 > **mdlinks ./caminhoDaPasta/nomeDoArquivo.md _--stats --validate_**
 
 Esses dois comandos juntos  _--validate --stats_ exibirá em uma tabela o número total de links encontrados no arquivo, o total de links únicos, e o número total de links quebrados. 
 
