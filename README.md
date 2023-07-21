@@ -17,7 +17,8 @@
 No projeto *'Markdown Links'*, desenvolvido durante o bootcamp da Laboratoria, foi criada uma biblioteca em Node.js com o objetivo de ler arquivos Markdown (.md) e verificar os links contidos neles. O foco principal desse projeto foi aprimorar o conhecimento em manipulação de arquivos, trabalhar com a CLI (command-line interface) e obter estatísticas sobre os links encontrados. Com essa biblioteca, tornou-se mais simples e eficiente realizar a validação de links em arquivos Markdown."
 ## 2.  Instalação da biblioteca
 Para instalar a biblioteca, execute o seguinte comando no terminal:
-### 🔹npm install md-links-raquel-maia
+
+### 🔹npm install md-links-raquel-maia -g
 ## 3.  Fluxograma
 <img src= ".\fluxo-f.png"/> 
 
